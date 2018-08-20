@@ -12,10 +12,16 @@ void button_event_handler(bc_button_t *self, bc_button_event_t event, void *even
     {
         bc_led_set_mode(&led, BC_LED_MODE_TOGGLE);
     }
+
+    // Logging in action
+    bc_log_info("Button event handler - event: %i", event);
 }
 
 void application_init(void)
 {
+    // Initialize logging
+    bc_log_init(BC_LOG_LEVEL_DUMP, BC_LOG_TIMESTAMP_ABS);
+
     // Initialize LED
     bc_led_init(&led, BC_GPIO_LED, false, false);
     bc_led_set_mode(&led, BC_LED_MODE_ON);

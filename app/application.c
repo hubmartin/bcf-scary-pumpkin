@@ -30,3 +30,12 @@ void application_init(void)
     bc_button_init(&button, BC_GPIO_BUTTON, BC_GPIO_PULL_DOWN, false);
     bc_button_set_event_handler(&button, button_event_handler, NULL);
 }
+
+void application_task(void)
+{
+    // Logging in action
+    bc_log_debug("application_task run");
+
+    // Plan next run this function after 1000 ms
+    bc_scheduler_plan_current_from_now(1000);
+}

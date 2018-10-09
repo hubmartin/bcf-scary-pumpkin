@@ -17,3 +17,4 @@ update:
 
 sdk/Makefile.mk:
 	@git submodule update --init sdk
+	@git submodule update --init .vscode
